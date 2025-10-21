@@ -1,13 +1,10 @@
-from selenium import webdriver
 import pytest
-import time
-from selenium.webdriver.common.by import By
+from selenium import webdriver
+from utils import login
 from selenium.webdriver.chrome.options import Options
 
-
-
-# Configurar Chrome para desactivar alertas de contraseñas y notificaciones
 @pytest.fixture(scope="module")
+# Configurar Chrome para desactivar alertas de contraseñas y notificaciones
 def driver():
     chrome_options = Options()
     prefs = {
@@ -22,13 +19,14 @@ def driver():
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(5) #tiempo de espera implicito 
 
-    yield driver
+    yield driver #yield =="@Aftermetho()"  in fixtures with pytests
     driver.quit()
 
-def test_login(driver):
-    #login
-        driver.get ("https://www.saucedemo.com/")
-        driver.find_element(By.ID, 'user-name').send_keys('standard_user')
-        driver.find_element(By.ID, 'password').send_keys('secret_sauce')
-        driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]').click()
+@pytest.fixture
+def login_in_driver(driver):
+    login(driver)
+    return driver
 
+
+
+#El conftest se reconcen automaticamente en las fixtures
