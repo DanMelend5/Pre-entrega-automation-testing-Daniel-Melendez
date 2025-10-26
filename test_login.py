@@ -12,5 +12,3 @@ def test_login_validation(login_in_driver):
     except Exception as e:
         print(f"error en test login: {e}")
         raise
-    finally: 
-        driver.quit()
