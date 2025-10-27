@@ -5,6 +5,7 @@ import pytest
 test_files = [
     "test/test_login.py",
     "test/test_inventory.py",
+    "test/test_add_to_cart.py"
 ]
 
 
