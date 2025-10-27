@@ -13,13 +13,30 @@ Personal repository created as part of the Automation Testing course from the Ta
 Repositório pessoal criado como parte do curso de Automação de Testes do programa Talento Tech, organizado pelo Governo da Cidade de Buenos Aires, Argentina. Este projeto tem como objetivo implementar scripts de testes automatizados para a aplicação https://www.saucedemo.com/ utilizando **Pytest** e **Selenium WebDriver**.
 
 ---
+El repositorio de la preentrega consiste en tres pruebas:
+
+
+test_add_to_cart.py:  que verifica que los productos se agregar al Carrrito y que se pueden eliminar.  
+test_inventory.py: que verifica que los productos existen y que el título de la página es el correcto.
+test_login.py: que se puede hacer login existosamente.
+
+
+--
 
 ## 📂 Project Structure / Estructura del Proyecto / Estrutura do Projeto
 
 /project-root
-│
-├── /tests # Test cases (Pytest)
-│ ├── test_login.py # ✅ Placeholder Test 1
-│ ├── test_add_to_cart.py # ✅ Placeholder Test 2
-│ └── test_checkout.py # ✅ Placeholder Test 3
-└── README.md
+
+|
+|   README.md
+|   report.html
+|   run_test.py
+|   utils.py
+|               
++---test
+|   |   conftest.py
+|   |   test_add_to_cart.py
+|   |   test_inventory.py
+|   |   test_login.py
+|   |   
+        
