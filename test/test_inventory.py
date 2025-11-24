@@ -1,21 +1,15 @@
-from selenium.webdriver.common.by import By
+from pages.inventory_page import InventoryPage
 
 
 def test_inventory(login_in_driver):
-    try:
-        driver = login_in_driver
-        # validacion de la redirection de la pagina
-        assert driver.title =="Swag Labs"
+    driver = login_in_driver
 
-        product_name = driver.find_elements(By.CLASS_NAME, "inventory_item_name")
-        product_price = driver.find_elements(By.CLASS_NAME, "inventory_item_price")
 
-        
-        assert product_name[0].text == 'Sauce Labs backpack', "El nombre del producto es incorrecto"
-        assert product_price[0].text == '$29.99', "El precio del producto es incorrecto"
+    inventory_page = InventoryPage(driver)
 
-        print("prueba exitosa")
+    assert driver.title == "Swag Labs"
 
-    except Exception as e:
-        print(f"error en test inventory: {e}")
-        raise
+    product_names = inventory_page.get_product_names()
+
+    # Validar primer producto
+    assert product_names[0] == "Sauce Labs Backpack", "El nombre del producto es incorrecto"

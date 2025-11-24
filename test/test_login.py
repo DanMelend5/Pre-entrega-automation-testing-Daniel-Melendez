@@ -1,12 +1,8 @@
-def test_login(login_in_driver):
-    try:
-        driver = login_in_driver
-        
-        # validacion de la redirection de la pagina
-        assert '/inventory.html' in driver.current_url, "no se redidirio al inventario"
+from pages.login_page import LoginPage
 
-        print("login exitoso")
+def test_login(driver):
+    login_page = LoginPage(driver)
+    login_page.open_page().login("standard_user", "secret_sauce")
 
-    except Exception as e:
-        print(f"error en test login: {e}")
-        raise
+    # Validar redirección
+    assert "/inventory.html" in driver.current_url, "No se redirigió al inventario"

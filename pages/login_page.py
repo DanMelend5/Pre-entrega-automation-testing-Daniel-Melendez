@@ -1,7 +1,7 @@
 from .base_page import BasePage
 from selenium.webdriver.common.by import By
 
-class logingPage(BasePage):
+class LoginPage(BasePage):
     #URL
     URL = "https://www.saucedemo.com/"
 
@@ -23,6 +23,7 @@ class logingPage(BasePage):
 
     def click_submit_btn(self):
         self.click(self._LOGIN_BUTTON)
+        return self
 
     def login(self, username, password):
         self.input_user(username)
