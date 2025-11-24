@@ -1,9 +1,8 @@
 from pages.inventory_page import InventoryPage
 
 
-def test_inventory(login_in_driver):
-    driver = login_in_driver
-
+def test_inventory(logged_in_driver):
+    driver = logged_in_driver
 
     inventory_page = InventoryPage(driver)
 

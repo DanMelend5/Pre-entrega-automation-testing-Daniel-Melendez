@@ -29,4 +29,7 @@ class LoginPage(BasePage):
         self.input_user(username)
         self.input_password (password)
         self.click_submit_btn()
-        return self
+
+        #import inventory_page
+        from pages.inventory_page import InventoryPage
+        return  InventoryPage(self.driver)

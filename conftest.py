@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from pages.login_page import LoginPage
 from selenium.webdriver.chrome.options import Options
 
 #from pages.login_page import LoginPage
@@ -22,13 +23,13 @@ def driver():
     yield driver
     driver.quit()
 
-"""
-@pytest.fixture
+
+@pytest.fixture 
 def logged_in_driver(driver):
-    loginPage(driver).open_page().login("standard_user", "secret_sauce")
+    LoginPage(driver).open_page().login("standard_user", "secret_sauce")
     return driver
 
-
+"""
 @pytest.fixture
 def inventory_page(logged_in_driver):
     return InventoryPage(logged_in_driver)
