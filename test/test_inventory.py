@@ -8,7 +8,14 @@ def test_inventory(logged_in_driver):
 
     assert driver.title == "Swag Labs"
 
-    product_names = inventory_page.get_product_names()
 
+    products = inventory_page.get_products()
+    product_names = inventory_page.get_product_names()
+    product_prices = inventory_page.get_product_prices()
+
+    
     # Validar primer producto
     assert product_names[0] == "Sauce Labs Backpack", "El nombre del producto es incorrecto"
+    assert product_prices[0] == '$29.99', "El precio del producto es incorrecto"
+    assert len(products) > 0, "No se encontraron productos"
+
