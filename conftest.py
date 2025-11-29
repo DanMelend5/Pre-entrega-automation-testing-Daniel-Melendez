@@ -29,9 +29,4 @@ def logged_in_driver(driver):
     LoginPage(driver).open_page().login("standard_user", "secret_sauce")
     return driver
 
-"""
-@pytest.fixture
-def inventory_page(logged_in_driver):
-    return InventoryPage(logged_in_driver)
 
-"""

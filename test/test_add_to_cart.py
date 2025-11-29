@@ -1,5 +1,6 @@
 from pages.inventory_page import InventoryPage
 
+
 def test_add_to_cart(logged_in_driver):
     driver = logged_in_driver
     inventory_page = InventoryPage(driver)

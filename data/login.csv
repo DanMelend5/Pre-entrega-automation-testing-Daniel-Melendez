@@ -1,0 +1,7 @@
+username,password,valid_credentials,description
+standard_user,secret_sauce,TRUE,Happy Path User
+locked_out_user,secret_sauce,FALSE,Blocked user
+problem_user,secret_sauce,TRUE,Corrupted Data User
+performance_glitch_user,secret_sauce,TRUE,Performance issues
+standard_user,password_incorrecto,FALSE,Invalid Password
+usuario_inexistente,secret_sauce,FALSE,User does not exit

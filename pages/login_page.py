@@ -8,12 +8,13 @@ class LoginPage(BasePage):
     _USERNAME= (By.ID, 'user-name')
     _PASSWORD = (By.ID, 'password')
     _LOGIN_BUTTON = (By.ID, 'login-button')
+    _ERROR_MESSAGE = (By.CSS_SELECTOR, "[data-test='error']")
 
     def open_page(self):   
         self.driver.get(self.URL)
         return self
     
-    def input_user (self,  username):
+    def input_username (self,  username):
         self.wait_for_element(self._USERNAME).send_keys(username)
         return self
 
@@ -25,8 +26,23 @@ class LoginPage(BasePage):
         self.click(self._LOGIN_BUTTON)
         return self
 
+    def is_error_displayed(self):
+        try:
+           error = self.wait_for_element(self._ERROR_MESSAGE)
+           return error.is_displayed()
+        except:
+            return False
+        
+    
+    def get_error_message(self):
+        if self.is_error_displayed():
+            error_text = self.driver.find_element(*self._ERROR_MESSAGE)
+            return error_text.text
+        return ""
+
+
     def login(self, username, password):
-        self.input_user(username)
+        self.input_username(username)
         self.input_password (password)
         self.click_submit_btn()
 
