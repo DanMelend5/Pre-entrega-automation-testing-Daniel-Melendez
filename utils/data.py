@@ -1,5 +1,5 @@
 import csv
-#import json
+import json
 import pathlib
 
 def read_csv_login(file_route):
@@ -27,35 +27,13 @@ def read_csv_login(file_route):
     return data
 
 
-# def leer_json_productos(ruta_archivo):
-#     """
-#     Lee el archivo JSON de productos
-#     Retorna lista de productos para parametrización
-#     """
-#     ruta = pathlib.Path(ruta_archivo)
+def read_json_products(file_route):
+    route = pathlib.Path(file_route)
     
-#     if not ruta.exists():
-#         raise FileNotFoundError(f"No se encontró el archivo: {ruta}")
+    if not route.exists():
+        raise FileNotFoundError(f"No se encontró el archivo: {route}")
     
-#     with open(ruta, 'r', encoding='utf-8') as archivo:
-#         productos = json.load(archivo)
+    with open(route, 'r', encoding='utf-8') as file:
+        products = json.load(file)
     
-#     return productos
-
-# # Función para testing - ejecutar solo este archivo
-# if __name__ == "__main__":
-#     print("=== Probando lectura de CSV ===")
-#     try:
-#         casos_login = leer_csv_login('../datos/login.csv')
-#         for caso in casos_login:
-#             print(f"Usuario: {caso[0]}, Debe funcionar: {caso[2]}")
-#     except Exception as e:
-#         print(f"Error leyendo CSV: {e}")
-    
-#     print("\n=== Probando lectura de JSON ===")
-#     try:
-#         productos = leer_json_productos('../datos/productos.json')
-#         for producto in productos:
-#             print(f"Producto: {producto['nombre']}")
-#     except Exception as e:
-#         print(f"Error leyendo JSON: {e}")
+    return products

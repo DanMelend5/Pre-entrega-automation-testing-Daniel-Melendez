@@ -26,3 +26,12 @@ def test_login_from_cvs(driver, username, password, valid_credentials, descripti
         error_message = login_page.get_error_message()
         assert len(error_message) > 0, "El mensaje de error está vacío"
         print(f" Login falló correctamente - Error: {error_message}")
+
+
+@pytest.mark.smoke
+def test_login(driver):
+    login_page = LoginPage(driver)
+    login_page.open_page()  
+    login_page.login()
+    assert "/inventory.html" in driver.current_url, "cannot login."
+        
