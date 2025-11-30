@@ -30,3 +30,7 @@ def logged_in_driver(driver):
     return driver
 
 
+
+@pytest.fixture
+def api_headers():
+    return {"x-api-key": "reqres-free-v1"}

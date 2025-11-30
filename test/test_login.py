@@ -32,6 +32,6 @@ def test_login_from_cvs(driver, username, password, valid_credentials, descripti
 def test_login(driver):
     login_page = LoginPage(driver)
     login_page.open_page()  
-    login_page.login()
+    login_page.login("standard_user", "secret_sauce")
     assert "/inventory.html" in driver.current_url, "cannot login."
         

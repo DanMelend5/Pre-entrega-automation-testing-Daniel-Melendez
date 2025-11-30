@@ -9,6 +9,7 @@ PRODUCTS_JSON = read_json_products('data\SwagLabsProducts.json')
 
 
     # verifica si se puede añadir el primer producto al carrito
+@pytest.mark.smoke
 def test_add_to_cart(logged_in_driver):
     driver = logged_in_driver
     inventory_page = InventoryPage(driver)
